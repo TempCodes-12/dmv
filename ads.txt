@@ -1,4 +1,4 @@
-```html
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5182994061509078" crossorigin="anonymous"></script>
 
 <!-- Example ad unit -->
@@ -12,4 +12,3 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-```
