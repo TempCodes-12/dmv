@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Louis Driver’s License Guide for International Students</title>
+
+    <!--
+      AMP Auto Ads (NOTE: This is intended for AMP pages only.
+      This site uses custom JS for interactivity, so it is NOT a valid AMP page.)
+    -->
+    <script
+      async
+      custom-element="amp-auto-ads"
+      src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
+    ></script>
+
+    <style>
+      :root {
+        --sky: #0284c7;
+        --purple: #7c3aed;
+        --amber: #f59e0b;
+        --bg1: #f0f9ff;
+        --bg2: #ffffff;
+        --bg3: #faf5ff;
+        --card: rgba(255, 255, 255, 0.82);
+        --border: rgba(148, 163, 184, 0.35);
+        --text: #0f172a;
+        --muted: #475569;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        color: var(--text);
+        background: linear-gradient(to bottom, var(--bg1), var(--bg2), var(--bg3));
+      }
+
+      a { color: inherit; }
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 16px 56px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(2, 132, 199, 0.15);
+        background: rgba(255, 255, 255, 0.7);
+        color: #0369a1;
+        font-size: 12px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--sky);
+      }
+
+      h1 {
+        margin: 10px 0 6px;
+        font-size: 28px;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 0 0 12px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .progressRow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .progressTrack {
+        flex: 1;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.35);
+        overflow: hidden;
+      }
+
+      .progressFill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(to right, var(--sky), var(--purple));
+        border-radius: 999px;
+        transition: width 180ms ease;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        padding: 18px;
+      }
+
+      .card + .card { margin-top: 16px; }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+
+      .muted { color: var(--muted); font-size: 13px; }
+      .warn { color: #b91c1c; font-weight: 600; font-size: 13px; }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 860px) {
+        .grid2 { grid-template-columns: 1fr 1fr; }
+      }
+
+      .miniCard {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 14px;
+      }
+
+      ul { margin: 8px 0 0; padding-left: 18px; }
+      li { margin: 6px 0; }
+
+      .studyBox {
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-radius: 16px;
+        padding: 12px;
+        font-size: 13px;
+      }
+
+      .studyBox a { text-decoration: underline; font-weight: 600; }
+
+      .checklist { margin-top: 8px; display: grid; gap: 6px; }
+
+      .checkItem {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 14px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .checkItem:hover { background: rgba(148, 163, 184, 0.2); }
+
+      .icon {
+        width: 18px; height: 18px;
+        border-radius: 999px;
+        border: 2px solid rgba(148, 163, 184, 0.8);
+        margin-top: 1px;
+        flex: 0 0 auto;
+      }
+      .icon.done {
+        border-color: rgba(34, 197, 94, 0.9);
+        background: rgba(34, 197, 94, 0.15);
+        position: relative;
+      }
+      .icon.done::after {
+        content: "✓";
+        position: absolute;
+        font-size: 12px;
+        font-weight: 900;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        color: #16a34a;
+      }
+
+      .searchRow { display: flex; gap: 10px; align-items: center; }
+      .searchInput {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        outline: none;
+        background: rgba(255, 255, 255, 0.85);
+      }
+      .searchInput:focus { border-color: rgba(2, 132, 199, 0.35); box-shadow: 0 0 0 3px rgba(2,132,199,0.12); }
+
+      .listGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 860px) {
+        .listGrid { grid-template-columns: 1fr 1fr; }
+      }
+
+      .locCard {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 14px;
+      }
+      .locTitle { font-weight: 700; margin-bottom: 6px; }
+      .locLine { font-size: 13px; color: #334155; margin: 3px 0; }
+
+      .pillNote {
+        font-size: 11px;
+        color: #475569;
+        background: rgba(148, 163, 184, 0.2);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+        margin-left: 8px;
+      }
+
+      .btnRow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      .btn {
+        border: none;
+        border-radius: 16px;
+        padding: 10px 14px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .btn.primary {
+        background: var(--sky);
+        color: white;
+      }
+      .btn.primary:hover { filter: brightness(0.95); }
+
+      .btn.purple {
+        background: var(--purple);
+        color: white;
+      }
+      .btn.purple:hover { filter: brightness(0.95); }
+
+      .btn.amber {
+        background: var(--amber);
+        color: white;
+      }
+      .btn.amber:hover { filter: brightness(0.95); }
+
+      textarea {
+        width: 100%;
+        min-height: 110px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        outline: none;
+        background: rgba(255, 255, 255, 0.85);
+        resize: vertical;
+      }
+      textarea:focus { border-color: rgba(2, 132, 199, 0.35); box-shadow: 0 0 0 3px rgba(2,132,199,0.12); }
+
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        outline: none;
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .commentCard {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 12px;
+      }
+      .commentType { font-size: 11px; font-weight: 800; color: #64748b; }
+      .commentText { margin-top: 4px; font-size: 13px; }
+
+      .footerBtnWrap { text-align: center; margin-top: 16px; }
+
+      .tiny { font-size: 12px; color: #64748b; }
+      .strong { font-weight: 700; }
+    </style>
+  </head>
+
+  <body>
+    <!--
+      AMP Auto Ads (NOTE: This is intended for AMP pages only.
+      This site uses custom JS, so AMP auto-ads may not work unless you rebuild as true AMP.)
+    -->
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-5182994061509078"></amp-auto-ads>
+
+    <div class="container">
+      <div>
+        <div class="badge"><span class="dot"></span> Missouri • St. Louis Area • International Students</div>
+        <h1>St. Louis Driver’s License Guide for International Students</h1>
+        <p class="subtitle">Built as a simple checklist you can follow step-by-step.</p>
+
+        <div class="progressRow">
+          <div class="progressTrack"><div id="progressFill" class="progressFill"></div></div>
+          <div id="progressText" class="strong">0/5 ready</div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <section class="card" aria-labelledby="step1">
+        <h2 id="step1">Step 1: Prepare Required Documents</h2>
+        <p class="muted">
+          Most international students do NOT have an SSN. Start with the <span class="strong">No SSN letter</span>.
+        </p>
+
+        <div class="studyBox">
+          <div class="strong">Study before you go</div>
+          <div style="margin-top: 4px;">
+            Before taking your permit test, study the Missouri Driver Guide:
+            <a href="https://driving-tests.org/wp-content/uploads/2025/09/MO_Driver-Guide.pdf" target="_blank" rel="noopener noreferrer">
+              Download Missouri Driver Guide (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="checklist" id="docChecklist"></div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="card" aria-labelledby="step2">
+        <h2 id="step2">Step 2: Take the Permit Test</h2>
+        <p class="warn">Check locations before going. Some may be closed due to staffing issues.</p>
+        <p class="muted">Testing website: <span class="strong">statepatrol.dps.mo.gov</span></p>
+
+        <div class="grid2">
+          <div class="miniCard">
+            <div class="strong">How the test works</div>
+            <ul>
+              <li>25 multiple choice questions</li>
+              <li>Need at least 20 correct</li>
+              <li>If you miss more than 5 → automatic fail</li>
+              <li>You can take up to 2 tests per day</li>
+              <li>After the written permit exam, you will also take a <span class="strong">vision test</span>.</li>
+              <li>Study <span class="strong">road signs</span> — they show up often.</li>
+            </ul>
+          </div>
+
+          <div class="miniCard">
+            <div class="strong">Bring with you</div>
+            <ul>
+              <li>Passport + F-1 Visa</li>
+              <li>I-94</li>
+              <li>Proof of address</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">Social Security Requirement (VERY IMPORTANT)</div>
+          <ul>
+            <li>
+              <span class="strong">If you HAVE an SSN:</span>
+              <ul>
+                <li>Bring your original Social Security Card (not laminated).</li>
+                <li>Name must match your passport and immigration documents.</li>
+                <li>If your SSN was previously verified in Missouri, you may sometimes provide the number verbally — but bringing the card is safest.</li>
+              </ul>
+            </li>
+            <li>
+              <span class="strong">If you DO NOT have an SSN (most F-1 students):</span>
+              <ul>
+                <li>Get a <span class="strong">No SSN Verification Letter</span> from the Social Security Administration (SSA).</li>
+                <li>
+                  Find your nearest SSA office:
+                  <a href="https://www.ssa.gov/locator" target="_blank" rel="noopener noreferrer" class="strong" style="text-decoration: underline;">
+                    ssa.gov/locator
+                  </a>
+                </li>
+                <li>Every SSA office may have different procedures — <span class="strong">call the office first</span> and confirm what documents they require.</li>
+                <li>Bring passport, valid F-1 visa, and I-94 when requesting the letter.</li>
+                <li>The letter must be original and recently issued.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="listGrid" id="permitTestSites" style="margin-top: 12px;"></div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="card" aria-labelledby="step3">
+        <h2 id="step3">Step 3: Get Your Learner’s Permit Card (DMV)</h2>
+
+        <div class="grid2">
+          <div class="miniCard">
+            <div class="strong">What to expect</div>
+            <ul>
+              <li>Go to a Missouri DMV office</li>
+              <li>Pay about <span class="strong">$16–$20</span></li>
+              <li>Cash is recommended (cards may have extra fees)</li>
+              <li>You will receive a <span class="strong">paper permit</span> you can use as proof of permit + ID</li>
+              <li>Your physical permit card usually arrives within <span class="strong">2 weeks</span></li>
+              <li>You may be asked to complete the <span class="strong">vision test again</span> when getting your learner’s permit card.</li>
+            </ul>
+          </div>
+
+          <div class="miniCard">
+            <div class="strong">Want a REAL ID permit?</div>
+            <p class="muted">
+              If you choose REAL ID, you can use your learner’s permit as an ID for domestic flights.
+            </p>
+            <div class="strong" style="margin-top: 8px;">Extra thing to bring (simple version)</div>
+            <ul>
+              <li>Bring <span class="strong">one more proof of address</span> (mail/bank letter with your name + date)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">REAL ID document checklist (keep it simple)</div>
+          <div class="grid2" style="margin-top: 8px;">
+            <div>
+              <div class="strong">1) Identity + lawful status</div>
+              <ul>
+                <li>Foreign passport</li>
+                <li>Valid U.S. visa (F-1)</li>
+                <li>I-94</li>
+              </ul>
+            </div>
+            <div>
+              <div class="strong">2) Social Security</div>
+              <ul>
+                <li>SSN Card (if you have one)</li>
+                <li>OR No SSN Verification Letter</li>
+              </ul>
+            </div>
+            <div>
+              <div class="strong">3) Proof of Missouri residence (2 documents)</div>
+              <ul>
+                <li>Must be from 2 different sources</li>
+                <li>Examples: utility bill, lease, bank mail, government mail</li>
+              </ul>
+            </div>
+            <div>
+              <div class="strong">4) Name change (only if needed)</div>
+              <ul>
+                <li>Marriage certificate, divorce decree, court order, etc.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <div class="searchRow">
+            <input id="dmvSearch" class="searchInput" placeholder="Search DMV by name, city, or phone…" />
+          </div>
+          <div class="tiny" style="margin-top: 6px;">Tip: Call ahead for hours and REAL ID processing.</div>
+        </div>
+
+        <div class="listGrid" id="dmvList" style="margin-top: 12px;"></div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="card" aria-labelledby="step4">
+        <h2 id="step4">Step 4: Take the Driving (Road) Test</h2>
+
+        <div class="miniCard">
+          <div class="strong">Before you go</div>
+          <ul>
+            <li>Bring your learner’s permit / ID card</li>
+            <li>If walking in, go <span class="strong">early in the morning</span></li>
+            <li>Only take the test if you are fully ready</li>
+            <li>You only get <span class="strong">3 total attempts</span></li>
+            <li>If you fail 3 times, you must complete a special driving course before testing again</li>
+          </ul>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">Pro Tip</div>
+          <p class="muted" style="margin-top: 6px;">
+            Try to remember the exact route the instructor takes you on. If you fail and need to retake the test, you can practice that same route before your next attempt.
+          </p>
+          <p class="muted" style="margin: 6px 0 0;">
+            Recommended location: <span class="strong">Koch Road</span>
+          </p>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">Extra Driving Test Tips</div>
+          <ul>
+            <li><span class="strong">Koch Road</span> is known for kind and professional examiners. Many students feel more comfortable testing there.</li>
+            <li>Use a car you are <span class="strong">very familiar with</span>. The first part of the test checks basic vehicle controls.</li>
+            <li>You may be asked to turn on headlights, left/right signals, hazard lights, windshield wipers, heater, and defroster (including mirror defrost).</li>
+            <li>When parking on a slope, remember to <span class="strong">turn your wheels correctly</span> and use the parking brake.</li>
+            <li>When reversing or turning, <span class="strong">physically turn your head</span> clearly in the direction you are moving. Do not rely only on mirrors — the examiner must see you checking.</li>
+            <li>Practice <span class="strong">parallel parking</span> carefully — this is usually the final part of the test.</li>
+            <li>Always obey the <span class="strong">speed limit</span>.</li>
+          </ul>
+        </div>
+
+        <div class="listGrid" id="roadTestSites" style="margin-top: 12px;"></div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="card" aria-labelledby="step5">
+        <h2 id="step5">Step 5: Get Your Driver’s License Card</h2>
+
+        <div class="miniCard">
+          <div class="strong">What to expect</div>
+          <ul>
+            <li>Go to a Missouri DMV office</li>
+            <li>Pay about <span class="strong">$16–$20</span></li>
+            <li>Cash is recommended (cards may have extra fees)</li>
+            <li>You will receive a <span class="strong">temporary paper license</span></li>
+            <li>Your physical driver’s license card usually arrives within <span class="strong">2 weeks</span></li>
+            <li>You will take the <span class="strong">vision test again</span> before your license is issued.</li>
+          </ul>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">What to Know for the Vision Test</div>
+          <ul>
+            <li>You will read letters or numbers from a vision chart (like an eye doctor test).</li>
+            <li>You may be tested on <span class="strong">peripheral vision</span> (seeing from the side).</li>
+            <li>You may be asked to identify some <span class="strong">road signs</span>.</li>
+            <li>If you wear glasses or contacts, <span class="strong">bring them</span> and use them during the test.</li>
+            <li>If you fail the vision screening, you may need an eye doctor form before your license is issued.</li>
+          </ul>
+        </div>
+
+        <div class="miniCard" style="margin-top: 12px;">
+          <div class="strong">Want a REAL ID Driver’s License?</div>
+          <p class="muted" style="margin-top: 6px;">A REAL ID allows you to board domestic flights using only your driver’s license.</p>
+          <ul>
+            <li>Bring identity documents (passport + visa + I-94 for F-1 students)</li>
+            <li>Bring SSN card OR No SSN letter</li>
+            <li>Bring two different Missouri address documents</li>
+            <li>Bring name change documents if applicable</li>
+          </ul>
+          <p class="tiny" style="margin-top: 8px;">
+            Official REAL ID guide: dor.mo.gov/driver-license/issuance/real-id/interactive-guide.html
+          </p>
+        </div>
+
+        <p class="muted" style="margin-top: 10px;">
+          You can use the same DMV offices listed in Step 3 (searchable list above).
+        </p>
+      </section>
+
+      <!-- BUY ME A COFFEE -->
+      <section class="card" aria-labelledby="coffee">
+        <h2 id="coffee">Support This Guide</h2>
+        <p class="muted">
+          If this guide helped you, you can support future updates (new tips, location changes, and fixes).
+        </p>
+        <div class="btnRow">
+          <a class="btn amber" href="https://buymeacoffee.com/zedd12" target="_blank" rel="noopener noreferrer">Buy me a coffee ☕</a>
+          <span class="tiny">Thanks for supporting ❤️</span>
+        </div>
+      </section>
+
+      <!-- COMMENTS -->
+      <section class="card" aria-labelledby="comments">
+        <h2 id="comments">Community Comments & Suggestions</h2>
+        <p class="muted">Share feedback to improve this guide or leave helpful tips for other students.</p>
+
+        <div class="grid2" style="margin-top: 10px;">
+          <div class="miniCard">
+            <div class="strong">Leave a comment</div>
+            <div style="margin-top: 10px;">
+              <select id="commentType">
+                <option>General Comment</option>
+                <option>Request to Edit Steps</option>
+              </select>
+            </div>
+            <div style="margin-top: 10px;">
+              <textarea id="commentText" placeholder="Write your comment here…"></textarea>
+            </div>
+            <div class="btnRow" style="margin-top: 10px;">
+              <button class="btn primary" id="submitComment">Submit Comment</button>
+              <button class="btn" id="clearComments" style="background: rgba(148,163,184,0.2);">Clear My Saved Comments</button>
+            </div>
+            <p class="tiny" style="margin-top: 8px;">
+              Comments are saved on <span class="strong">your device/browser</span> (localStorage). For public comments visible to everyone, you’ll need a backend (Netlify Forms/Supabase/Firebase).
+            </p>
+          </div>
+
+          <div class="miniCard">
+            <div class="strong">Recent comments</div>
+            <div id="commentList" style="margin-top: 10px; display: grid; gap: 10px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footerBtnWrap">
+        <button class="btn purple" id="completeBtn">Complete Guide</button>
+      </div>
+
+      <p class="tiny" style="margin-top: 14px; text-align: center;">
+        Note: AMP Auto Ads code is included as requested, but this interactive site is not AMP-valid.
+        AMP auto-ads may not run unless you rebuild as true AMP (no custom JS).
+      </p>
+    </div>
+
+    <script>
+      // -----------------------------
+      // Data
+      // -----------------------------
+      const STORAGE_KEYS = {
+        checklist: "stl_intl_dl_checklist_v1",
+        comments: "stl_intl_dl_comments_v1",
+      };
+
+      const checklistItems = [
+        { id: "nossn", label: "No SSN Letter (needed if you don’t have a Social Security Number)" },
+        { id: "passport", label: "Passport" },
+        { id: "visa", label: "Recent/valid F-1 Visa" },
+        { id: "i94", label: "I-94 (arrival/departure record from when you entered the U.S.)" },
+        { id: "address", label: "Proof of address (lease, utility bill, or bank mail with your name + date)" },
+      ];
+
+      const permitTestSites = [
+        { name: "Hazelwood", address: "7232 N. Lindbergh Blvd, Hazelwood, MO 63042", phone: "314-731-4418", note: "" },
+        { name: "Manchester", address: "703 Big Bend Rd, Ballwin, MO 63021", phone: "636-300-2899", note: "" },
+        { name: "St. Peters", address: "580 N. Service Rd, St. Peters, MO 63376", phone: "636-278-2925", note: "" },
+        { name: "St. Louis (Koch Rd)", address: "3180 Koch Rd, St. Louis, MO 63125", phone: "314-416-2180", note: "" },
+        { name: "Chouteau", address: "3101 Chouteau Ave, St Louis, MO 63103", phone: "314-933-7292", note: "Mondays only" },
+        { name: "Jefferson / Festus", address: "1255 N Truman Blvd, Crystal City, MO 63019", phone: "636-543-4383", note: "Wednesdays & Thursdays only" },
+      ];
+
+      const dmvOffices = [
+        { name: "AFTON (003)", address: "9513 Gravois Rd, Afton", phone: "(314) 631-1311" },
+        { name: "ARNOLD (133)", address: "108 Richardson Crossing, Arnold", phone: "(636) 461-0846" },
+        { name: "BRIDGETON (160)", address: "11977 St Charles Rock Rd Suite 111, Bridgeton", phone: "(314) 298-0127" },
+        { name: "CENTRAL WEST END (052)", address: "4041 Lindell Blvd, St Louis", phone: "(314) 925-8330" },
+        { name: "CHESTERFIELD (114)", address: "14838 Clayton Road, Chesterfield", phone: "(636) 386-5177" },
+        { name: "CLAYTON (162)", address: "141 N Meramec Ave Ste 201, Clayton", phone: "(314) 499-7223" },
+        { name: "CREVE COEUR (142)", address: "12933 Olive Blvd, St Louis", phone: "(314) 878-2110" },
+        { name: "DES PERES (147)", address: "1080 Old Des Peres Road, Des Peres", phone: "(314) 909-1514" },
+        { name: "FLORISSANT (035)", address: "650 N Hwy 67, Florissant", phone: "(314) 474-5045" },
+        { name: "HARVESTER (148)", address: "4217-19 Old Hwy 94 South, Saint Charles", phone: "(636) 441-6074" },
+        { name: "HIGH RIDGE (122)", address: "1684 Gravois Road, High Ridge", phone: "(636) 677-5339" },
+        { name: "IMPERIAL (133)", address: "1238 Main St, Imperial", phone: "(636) 464-3330" },
+        { name: "MAPLEWOOD (204)", address: "3238 Laclede Station Road, Maplewood", phone: "(314) 645-1044" },
+        { name: "OAKVILLE (166)", address: "3164 Telegraph Road, St Louis", phone: "(314) 887-1050" },
+        { name: "OFALLON (173)", address: "2421 Highway K, O Fallon", phone: "(636) 271-5300" },
+        { name: "OLIVETTE (171)", address: "9652 Olive Blvd, St Louis", phone: "(314) 692-8222" },
+        { name: "OVERLAND (118)", address: "10292 Page Avenue, St Louis", phone: "(314) 890-0880" },
+        { name: "PACIFIC (017)", address: "730 Osage, Pacific", phone: "(636) 393-4011" },
+        { name: "SAINT CHARLES (050)", address: "1982 Zumbehl Rd, St Charles", phone: "(636) 946-4456" },
+        { name: "SOUTH COUNTY (154)", address: "111 Concord Plaza Shopping Center, St Louis", phone: "(314) 843-5223" },
+        { name: "SOUTH KINGSHIGHWAY (200)", address: "4628 South Kingshighway, St Louis", phone: "(314) 752-3177" },
+        { name: "WEST COUNTY (149)", address: "15533 Manchester Road, Ballwin", phone: "(636) 230-5041" },
+      ];
+
+      const roadTestSites = [
+        { name: "Manchester", address: "703 Big Bend Rd", phone: "636-300-2899" },
+        { name: "Koch Rd (South County)", address: "3180 Koch Rd", phone: "314-416-2180" },
+        { name: "Hazelwood", address: "7232 N. Lindbergh", phone: "314-731-4418" },
+        { name: "St. Peters", address: "580 N Service Rd", phone: "636-278-2925" },
+        { name: "St. Charles", address: "2495 Raymond Rd", phone: "636-940-3320" },
+        { name: "Festus", address: "1255 N Truman", phone: "636-300-2874" },
+        { name: "Chouteau (Mon & Tue only)", address: "3101 Chouteau Ave", phone: "314-933-7292" },
+        { name: "Jennings (Mon & Tue only)", address: "8501 Lucas and Hunt", phone: "314-877-2222" },
+        { name: "South Travel", address: "Call for location", phone: "573-934-0235" },
+        { name: "North Travel", address: "Tue @ St. Clair | Wed @ Troy | Thu @ Warrenton (1,3,5) | Thu @ BG (2,4) | Fri @ Washington", phone: "636-221-5269" },
+      ];
+
+      // -----------------------------
+      // Helpers
+      // -----------------------------
+      function safeJsonParse(raw, fallback) {
+        try { return JSON.parse(raw); } catch { return fallback; }
+      }
+
+      function save(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+      }
+
+      function load(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) return fallback;
+          return safeJsonParse(raw, fallback);
+        } catch {
+          return fallback;
+        }
+      }
+
+      function el(tag, attrs = {}, children = []) {
+        const node = document.createElement(tag);
+        Object.entries(attrs).forEach(([k, v]) => {
+          if (k === "class") node.className = v;
+          else if (k === "text") node.textContent = v;
+          else node.setAttribute(k, v);
+        });
+        children.forEach((c) => node.appendChild(c));
+        return node;
+      }
+
+      function renderLocations(targetId, items) {
+        const root = document.getElementById(targetId);
+        root.innerHTML = "";
+        items.forEach((s) => {
+          const title = el("div", { class: "locTitle" });
+          title.appendChild(document.createTextNode(s.name));
+          if (s.note) title.appendChild(el("span", { class: "pillNote", text: s.note }));
+
+          const card = el("div", { class: "locCard" }, [
+            title,
+            el("div", { class: "locLine", text: s.address }),
+            el("div", { class: "locLine", text: `Phone: ${s.phone}` }),
+          ]);
+          root.appendChild(card);
+        });
+      }
+
+      function filterDmvs(list, query) {
+        const q = (query || "").trim().toLowerCase();
+        if (!q) return list;
+        return list.filter((d) =>
+          `${d.name} ${d.address} ${d.phone}`.toLowerCase().includes(q)
+        );
+      }
+
+      // -----------------------------
+      // Checklist
+      // -----------------------------
+      let checklistState = load(STORAGE_KEYS.checklist, {});
+      function renderChecklist() {
+        const root = document.getElementById("docChecklist");
+        root.innerHTML = "";
+
+        checklistItems.forEach((item) => {
+          const isDone = !!checklistState[item.id];
+          const icon = el("div", { class: `icon ${isDone ? "done" : ""}` });
+          const label = el("div", { text: item.label });
+
+          const row = el("div", { class: "checkItem", role: "checkbox", tabindex: "0", "aria-checked": String(isDone) }, [
+            icon,
+            label,
+          ]);
+
+          function toggle() {
+            checklistState[item.id] = !checklistState[item.id];
+            save(STORAGE_KEYS.checklist, checklistState);
+            renderChecklist();
+            renderProgress();
+          }
+
+          row.addEventListener("click", toggle);
+          row.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggle();
+            }
+          });
+
+          root.appendChild(row);
+        });
+      }
+
+      function renderProgress() {
+        const done = checklistItems.filter((x) => checklistState[x.id]).length;
+        const total = checklistItems.length;
+        const pct = Math.round((done / total) * 100);
+        document.getElementById("progressFill").style.width = pct + "%";
+        document.getElementById("progressText").textContent = `${done}/${total} ready`;
+      }
+
+      // -----------------------------
+      // DMV Search
+      // -----------------------------
+      function renderDmvList(query) {
+        const list = filterDmvs(dmvOffices, query);
+        const root = document.getElementById("dmvList");
+        root.innerHTML = "";
+        list.forEach((d) => {
+          root.appendChild(
+            el("div", { class: "locCard" }, [
+              el("div", { class: "locTitle", text: d.name }),
+              el("div", { class: "locLine", text: d.address }),
+              el("div", { class: "locLine", text: `Phone: ${d.phone}` }),
+            ])
+          );
+        });
+      }
+
+      // -----------------------------
+      // Comments (localStorage)
+      // -----------------------------
+      let comments = load(STORAGE_KEYS.comments, []);
+      function sanitizeComments(arr) {
+        if (!Array.isArray(arr)) return [];
+        return arr
+          .filter((x) => x && (x.type === "General Comment" || x.type === "Request to Edit Steps") && typeof x.text === "string" && typeof x.createdAt === "number")
+          .slice(0, 200);
+      }
+      comments = sanitizeComments(comments);
+
+      function renderComments() {
+        const root = document.getElementById("commentList");
+        root.innerHTML = "";
+
+        if (comments.length === 0) {
+          root.appendChild(el("div", { class: "tiny", text: "No comments yet. Be the first to contribute." }));
+          return;
+        }
+
+        comments.forEach((c) => {
+          root.appendChild(
+            el("div", { class: "commentCard" }, [
+              el("div", { class: "commentType", text: c.type }),
+              el("div", { class: "commentText", text: c.text }),
+            ])
+          );
+        });
+      }
+
+      function addComment(type, text) {
+        const t = (text || "").trim();
+        if (!t) return;
+        const item = { type, text: t, createdAt: Date.now() };
+        comments = [item, ...comments].slice(0, 200);
+        save(STORAGE_KEYS.comments, comments);
+        renderComments();
+      }
+
+      // -----------------------------
+      // Dev “tests” (console)
+      // -----------------------------
+      function runDevTests() {
+        console.assert(filterDmvs(dmvOffices, "").length === dmvOffices.length, "filterDmvs should return all when query empty");
+        console.assert(filterDmvs(dmvOffices, "AFTON").some((d) => d.name.includes("AFTON")), "filterDmvs should match by name");
+        console.assert(filterDmvs(dmvOffices, "631-1311").some((d) => d.phone.includes("631-1311")), "filterDmvs should match by phone");
+        console.assert(filterDmvs(dmvOffices, "afton").some((d) => d.name.includes("AFTON")), "filterDmvs should be case-insensitive");
+        console.assert(filterDmvs(dmvOffices, "Gravois").some((d) => d.address.toLowerCase().includes("gravois")), "filterDmvs should match by address");
+      }
+
+      // -----------------------------
+      // Init
+      // -----------------------------
+      document.addEventListener("DOMContentLoaded", () => {
+        renderChecklist();
+        renderProgress();
+
+        renderLocations("permitTestSites", permitTestSites);
+        renderLocations("roadTestSites", roadTestSites);
+
+        renderDmvList("");
+        const search = document.getElementById("dmvSearch");
+        search.addEventListener("input", () => renderDmvList(search.value));
+
+        renderComments();
+        document.getElementById("submitComment").addEventListener("click", () => {
+          const type = document.getElementById("commentType").value;
+          const text = document.getElementById("commentText").value;
+          addComment(type, text);
+          document.getElementById("commentText").value = "";
+        });
+
+        document.getElementById("clearComments").addEventListener("click", () => {
+          comments = [];
+          save(STORAGE_KEYS.comments, comments);
+          renderComments();
+        });
+
+        document.getElementById("completeBtn").addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        runDevTests();
+      });
+    </script>
+
+    <!--
+      Note from your instructions:
+      “It can take up to an hour for ads to appear on the page.”
+      That statement applies to AMP Auto Ads on true AMP pages.
+    -->
+  </body>
+</html>
