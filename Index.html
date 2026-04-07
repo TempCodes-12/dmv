@@ -1116,19 +1116,17 @@ async function postComment(type, text) {
   btn.textContent = "Posting…";
   status.textContent = "";
   try {
-    // Apps Script requires no-cors or a form POST — use URLSearchParams for reliability
-    const params = new URLSearchParams({ type, text });
-    await fetch(COMMENTS_API, {
+    const res = await fetch(COMMENTS_API, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: params.toString(),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type, text }),
     });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "Failed");
     document.getElementById("commentText").value = "";
     status.style.color = "var(--green)";
     status.textContent = "✓ Comment posted!";
-    // Wait a moment then reload so the sheet has time to write
-    setTimeout(loadComments, 1500);
+    setTimeout(loadComments, 800);
   } catch {
     status.style.color = "var(--red)";
     status.textContent = "✗ Failed to post. Please try again.";
