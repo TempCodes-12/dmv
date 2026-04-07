@@ -1071,9 +1071,9 @@ function renderDmv(query) {
 }
 
 // ─────────────────────────────────────────
-// LIVE COMMENTS — Netlify function + GitHub
+// LIVE COMMENTS — Google Sheets Apps Script
 // ─────────────────────────────────────────
-const COMMENTS_API = "/.netlify/functions/comments";
+const COMMENTS_API = "https://script.google.com/macros/s/AKfycbw132CPfhmd4fNTZ6sHwPm_y45epfNmG-IjITTasleEFwv8aUUifa6NQmvlWgUosgB65w/exec";
 
 function renderComments(comments) {
   const root = document.getElementById("commentList");
@@ -1088,7 +1088,7 @@ function renderComments(comments) {
     const tag  = mk("span", "comment-type-tag", c.type);
     meta.appendChild(tag);
     if (c.createdAt) {
-      const date = mk("span", "comment-date", new Date(c.createdAt).toLocaleDateString(undefined, {month:"short",day:"numeric",year:"numeric"}));
+      const date = mk("span", "comment-date", new Date(Number(c.createdAt)).toLocaleDateString(undefined, {month:"short",day:"numeric",year:"numeric"}));
       meta.appendChild(date);
     }
     card.appendChild(meta);
@@ -1116,16 +1116,19 @@ async function postComment(type, text) {
   btn.textContent = "Posting…";
   status.textContent = "";
   try {
-    const res = await fetch(COMMENTS_API, {
+    // Apps Script requires no-cors or a form POST — use URLSearchParams for reliability
+    const params = new URLSearchParams({ type, text });
+    await fetch(COMMENTS_API, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type, text }),
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
     });
-    if (!res.ok) throw new Error("Server error");
     document.getElementById("commentText").value = "";
     status.style.color = "var(--green)";
     status.textContent = "✓ Comment posted!";
-    await loadComments();
+    // Wait a moment then reload so the sheet has time to write
+    setTimeout(loadComments, 1500);
   } catch {
     status.style.color = "var(--red)";
     status.textContent = "✗ Failed to post. Please try again.";
