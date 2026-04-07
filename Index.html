@@ -1116,9 +1116,11 @@ async function postComment(type, text) {
   btn.textContent = "Posting…";
   status.textContent = "";
   try {
+    // Use text/plain to avoid CORS preflight (OPTIONS) which Apps Script rejects
+    // Apps Script still receives the JSON body fine via e.postData.contents
     const res = await fetch(COMMENTS_API, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain" },
       body: JSON.stringify({ type, text }),
     });
     const data = await res.json();
